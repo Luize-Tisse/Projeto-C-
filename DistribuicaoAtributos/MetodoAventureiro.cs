@@ -46,10 +46,13 @@ public class MetodoAventureiro : IDistribuicaoMetodo
 
                 Console.Write("Digite o índice: ");
 
-                bool conversao = int.TryParse(Console.ReadLine(), out int escolha);
+                int escolha;
+                bool numeroValido = false;
+
+                numeroValido = int.TryParse(Console.ReadLine(), out escolha);
 
 
-                if (!conversao)
+                if (!numeroValido)
                 {
                     Console.WriteLine("Digite um número válido.");
                     continue;
