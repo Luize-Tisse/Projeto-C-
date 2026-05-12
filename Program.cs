@@ -8,11 +8,11 @@ public class Program
     {
         Console.WriteLine("=== CRIAÇÃO DE PERSONAGEM - OLD DRAGON ===\n");
 
-        // Nome
+
         Console.Write("Digite o nome do personagem: ");
         string nome = Console.ReadLine();
 
-        // Classes
+
         Classe[] classes =
         {
             new Classe("Guerreiro", "Especialista em combate, capaz de usar qualquer arma e armadura. Possui alta resistência e grande capacidade ofensiva.", 10),
@@ -42,7 +42,6 @@ public class Program
 
         Classe classeEscolhida = classes[escolhaClasse];
 
-        // Método de distribuição
         Console.WriteLine("\nEscolha o método de distribuição:");
 
         Console.WriteLine("1 - Clássico");
@@ -75,10 +74,10 @@ public class Program
                 break;
         }
 
-        // Distribuição dos atributos
+
         int[] atributos = distribuicaoEscolhida.DistribuirAtributos();
 
-        // Criação do objeto Atributos
+
         Atributos atributosPersonagem = new Atributos(
             atributos[0],
             atributos[1],
@@ -88,7 +87,7 @@ public class Program
             atributos[5]
         );
 
-        // Lista de modificadores
+
         int[] modificadores = new int[6];
 
         for (int i = 0; i < atributos.Length; i++)
@@ -97,14 +96,14 @@ public class Program
                 Modificadores.Calcular(atributos[i]);
         }
 
-        // Constituição = índice 2
+
         int modificadorConstituicao = modificadores[2];
 
-        // PV
+
         int pontosVida =
             classeEscolhida.vidaBase + modificadorConstituicao;
 
-        // Personagem
+
         var personagem = new Personagem(
             nome,
             classeEscolhida,
@@ -122,7 +121,7 @@ public class Program
             "Carisma"
         };
 
-        // Exibição
+
         Console.WriteLine("\n=== PERSONAGEM CRIADO ===");
 
         Console.WriteLine($"Nome: {personagem.nome}");
