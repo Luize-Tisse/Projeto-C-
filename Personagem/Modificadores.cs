@@ -1,4 +1,4 @@
-namespace Personagem;
+namespace PersonagemModels;
 
 public static class Modificadores
 {

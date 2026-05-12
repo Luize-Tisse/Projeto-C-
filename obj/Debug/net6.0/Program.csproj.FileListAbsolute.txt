@@ -12,3 +12,4 @@ C:\Users\Luize\Documents\Pasta UP\C# A2\obj\Debug\net6.0\refint\Program.dll
 C:\Users\Luize\Documents\Pasta UP\C# A2\obj\Debug\net6.0\Program.pdb
 c:\Users\Luize\Documents\Pasta UP\C# A2\obj\Debug\net6.0\Program.genruntimeconfig.cache
 c:\Users\Luize\Documents\Pasta UP\C# A2\obj\Debug\net6.0\ref\Program.dll
+C:\Users\Luize\Documents\Pasta UP\C# A2\obj\Debug\net6.0\Program.sourcelink.json

@@ -1,5 +1,5 @@
 using System;
-using Personagem;
+using PersonagemModels;
 using DistribuicaoAtributos;
 
 public class Program
@@ -15,13 +15,13 @@ public class Program
         // Classes
         Classe[] classes =
         {
-            new Classe("Guerreiro", "Especialista em combate físico.", 10),
-            new Classe("Clérigo", "Usuário de magia divina e cura.", 8),
-            new Classe("Mago", "Usuário de magia arcana.", 4),
-            new Classe("Ladrão", "Especialista em furtividade.", 6),
-            new Classe("Elfo", "Combina combate e magia.", 6),
-            new Classe("Anão", "Resistente e forte contra magia.", 8),
-            new Classe("Halfling", "Ágil e furtivo.", 6)
+            new Classe("Guerreiro", "Especialista em combate, capaz de usar qualquer arma e armadura. Possui alta resistência e grande capacidade ofensiva.", 10),
+            new Classe("Clérigo", "Servo de uma divindade, utiliza magias divinas, cura aliados e combate criaturas malignas e mortos-vivos.", 8),
+            new Classe("Mago", "Estudioso das artes arcanas, utiliza magias poderosas, porém possui baixa resistência física.", 4),
+            new Classe("Ladrão", "Especialista em furtividade, armadilhas, escalada, abertura de fechaduras e ataques sorrateiros.", 6),
+            new Classe("Elfo", "Combina habilidades marciais e mágicas, possuindo afinidade natural com magia e boa percepção.", 6),
+            new Classe("Anão", "Guerreiro resistente e disciplinado, famoso por sua resistência física e proteção contra magia.", 8),
+            new Classe("Halfling", "Pequeno, ágil e discreto, excelente em furtividade, esquiva e combate à distância.", 6)
         };
 
         Console.WriteLine("\nEscolha uma classe:");
@@ -105,7 +105,7 @@ public class Program
             classeEscolhida.vidaBase + modificadorConstituicao;
 
         // Personagem
-        Personagem personagem = new Personagem(
+        var personagem = new Personagem(
             nome,
             classeEscolhida,
             atributosPersonagem,

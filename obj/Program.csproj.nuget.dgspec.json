@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Luize\\Documents\\Pasta UP\\C# A2\\Program.csproj": {}
+    "C:\\Users\\Luize\\Documents\\Pasta UP\\C# A2\\Program.csproj": {}
   },
   "projects": {
-    "c:\\Users\\Luize\\Documents\\Pasta UP\\C# A2\\Program.csproj": {
+    "C:\\Users\\Luize\\Documents\\Pasta UP\\C# A2\\Program.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Luize\\Documents\\Pasta UP\\C# A2\\Program.csproj",
+        "projectUniqueName": "C:\\Users\\Luize\\Documents\\Pasta UP\\C# A2\\Program.csproj",
         "projectName": "Program",
-        "projectPath": "c:\\Users\\Luize\\Documents\\Pasta UP\\C# A2\\Program.csproj",
+        "projectPath": "C:\\Users\\Luize\\Documents\\Pasta UP\\C# A2\\Program.csproj",
         "packagesPath": "C:\\Users\\Luize\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Luize\\Documents\\Pasta UP\\C# A2\\obj\\",
+        "outputPath": "C:\\Users\\Luize\\Documents\\Pasta UP\\C# A2\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Luize\\AppData\\Roaming\\NuGet\\NuGet.Config"

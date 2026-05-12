@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3WO8k/sp62Q=",
+  "dgSpecHash": "PcEzFSZV2yw=",
   "success": true,
-  "projectFilePath": "c:\\Users\\Luize\\Documents\\Pasta UP\\C# A2\\Program.csproj",
+  "projectFilePath": "C:\\Users\\Luize\\Documents\\Pasta UP\\C# A2\\Program.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Luize\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.36\\microsoft.netcore.app.ref.6.0.36.nupkg.sha512",
     "C:\\Users\\Luize\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.36\\microsoft.windowsdesktop.app.ref.6.0.36.nupkg.sha512",
