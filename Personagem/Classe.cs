@@ -6,6 +6,8 @@ public class Classe
     public string descricao { get; set; }
     public int vidaBase { get; set; }
 
+    public Classe() { }
+
     public Classe(string nome, string descricao, int vidaBase)
     {
         this.nome = nome;

@@ -1,17 +1,60 @@
 using System;
-using PersonagemModels;
+using System.Linq;
+using Data;
 using DistribuicaoAtributos;
+using Microsoft.EntityFrameworkCore;
+using PersonagemModels;
 
 public class Program
 {
+    private static readonly string[] nomesAtributos =
+    {
+        "Força",
+        "Destreza",
+        "Constituição",
+        "Inteligência",
+        "Sabedoria",
+        "Carisma"
+    };
+
     public static void Main(string[] args)
     {
         Console.WriteLine("=== CRIAÇÃO DE PERSONAGEM - OLD DRAGON ===\n");
 
+        using var db = new PersonagemContext();
+        db.Database.EnsureCreated();
 
+        Console.WriteLine("1 - Criar novo personagem");
+        Console.WriteLine("2 - Listar personagens salvos");
+        Console.WriteLine("3 - Excluir personagem");
+        Console.Write("Escolha: ");
+
+        int opcao;
+        while (!int.TryParse(Console.ReadLine(), out opcao) || opcao < 1 || opcao > 3)
+        {
+            Console.WriteLine("Escolha inválida.");
+        }
+
+        switch (opcao)
+        {
+            case 2:
+                ListarPersonagens(db);
+                return;
+
+            case 3:
+                ExcluirPersonagem(db);
+                return;
+
+            default:
+                CriarPersonagem(db);
+                return;
+        }
+    }
+
+    private static void CriarPersonagem(PersonagemContext db)
+    {
         Console.Write("Digite o nome do personagem: ");
         string nome = Console.ReadLine();
-
 
         Classe[] classes =
         {
@@ -111,18 +154,92 @@ public class Program
             pontosVida
         );
 
-        string[] nomesAtributos =
+        db.Personagens.Add(personagem);
+        db.SaveChanges();
+
+
+        Console.WriteLine("\n=== PERSONAGEM CRIADO E SALVO ===");
+        Console.WriteLine($"ID: {personagem.Id}");
+        ImprimirPersonagem(personagem, modificadores);
+    }
+
+    private static void ListarPersonagens(PersonagemContext db)
+    {
+        var personagens = db.Personagens.AsNoTracking().ToList();
+
+        if (personagens.Count == 0)
         {
-            "Força",
-            "Destreza",
-            "Constituição",
-            "Inteligência",
-            "Sabedoria",
-            "Carisma"
+            Console.WriteLine("\nNenhum personagem salvo.");
+            return;
+        }
+
+        Console.WriteLine($"\n=== {personagens.Count} PERSONAGEM(NS) SALVO(S) ===");
+
+        foreach (var personagem in personagens)
+        {
+            int[] atributos =
+            {
+                personagem.atributos.forca,
+                personagem.atributos.destreza,
+                personagem.atributos.constituicao,
+                personagem.atributos.inteligencia,
+                personagem.atributos.sabedoria,
+                personagem.atributos.carisma
+            };
+
+            int[] modificadores = new int[6];
+            for (int i = 0; i < atributos.Length; i++)
+            {
+                modificadores[i] = Modificadores.Calcular(atributos[i]);
+            }
+
+            Console.WriteLine($"\n--- ID {personagem.Id} ---");
+            ImprimirPersonagem(personagem, modificadores);
+        }
+    }
+
+    private static void ExcluirPersonagem(PersonagemContext db)
+    {
+        var personagens = db.Personagens.AsNoTracking().ToList();
+        if (personagens.Count == 0)
+        {
+            Console.WriteLine("Nenhum personagem salvo.");
+            return;
+        }
+        Console.WriteLine("=== PERSONAGEM(NS) SALVO(S) ===");
+        foreach (var p in personagens)
+        {
+            Console.WriteLine($"ID: {p.Id} - Nome: {p.nome}");
+        }
+
+        Console.Write("Digite o ID do personagem a excluir: ");
+        int id = int.Parse(Console.ReadLine());
+
+        var personagem = db.Personagens.Find(id);
+
+        if (personagem == null)
+        {
+            Console.WriteLine("Personagem não encontrado.");
+            return;
+        }
+
+        db.Personagens.Remove(personagem);
+        db.SaveChanges();
+
+        Console.WriteLine("Personagem excluído.");
+    }
+
+    private static void ImprimirPersonagem(Personagem personagem, int[] modificadores)
+    {
+        int[] atributos =
+        {
+            personagem.atributos.forca,
+            personagem.atributos.destreza,
+            personagem.atributos.constituicao,
+            personagem.atributos.inteligencia,
+            personagem.atributos.sabedoria,
+            personagem.atributos.carisma
         };
-
-
-        Console.WriteLine("\n=== PERSONAGEM CRIADO ===");
 
         Console.WriteLine($"Nome: {personagem.nome}");
         Console.WriteLine($"Classe: {personagem.classe.nome}");
@@ -139,7 +256,5 @@ public class Program
         }
 
         Console.WriteLine($"\nPontos de Vida: {personagem.pontosVida}");
-
-
     }
 }
