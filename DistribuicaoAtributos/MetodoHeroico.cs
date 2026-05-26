@@ -9,14 +9,14 @@ public class MetodoHeroico : IDistribuicaoMetodo
 
     public int[] DistribuirAtributos()
     {
-        int[] atributos = new int[6];
+        int[] atributosRolados = new int[6];
 
-        for (int i = 0; i < atributos.Length; i++)
+        for (int i = 0; i < atributosRolados.Length; i++)
         {
-            atributos[i] = Rolar4d6MenosMenor();
+            atributosRolados[i] = Rolar4d6MenosMenor();
         }
 
-        return atributos;
+        return EscolhaAtributos.DistribuirEntreAtributos(atributosRolados);
     }
 
     private int Rolar4d6MenosMenor()
