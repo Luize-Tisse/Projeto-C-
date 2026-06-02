@@ -9,6 +9,8 @@ public class Atributos
     public int sabedoria { get; set; }
     public int carisma { get; set; }
 
+    public Atributos() { }
+
     public Atributos(
         int forca,
         int destreza,
