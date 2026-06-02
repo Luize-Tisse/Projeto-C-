@@ -10,4 +10,8 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.20" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Remove="Projeto-C-.Tests\**\*.cs" />
+  </ItemGroup>
+
 </Project>
